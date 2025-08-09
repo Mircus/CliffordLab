@@ -6,7 +6,7 @@ Minimal, practical tools for experimenting with **unified slice regularity** on 
 - `cliffordlab_sym.py` – **SymPy** exact CR checks and slice exponentials
 - `cliffordlab_pygae.py` – helpers built on **pygae/clifford** (numeric GA)
 
-<img src="./logo.svg" width="220" alt="CliffordLab logo" />
+<img src="./cliffordlab.svg" width="220" alt="CliffordLab logo" />
 
 ## Install
 
