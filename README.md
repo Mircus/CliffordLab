@@ -4,6 +4,12 @@
 
 # CliffordLab
 
+This repository accompanies the article:
+
+**Unified Slice Regularity on Clifford Algebras: A Geometric and Operator-Theoretic Framework**  
+by Mirco A. Mannucci  
+📄 [Read the article here](https://www.academia.edu/143351560/Unified_Slice_Regularity_on_Clifford_Algebras_A_Geometric_and_Operator_Theoretic_Framework) ← 
+
 
 
 **CliffordLab** is a lightweight laboratory for experimenting with **unified slice regularity** on real Clifford algebras \( \mathrm{Cl}(p,q) \).
