@@ -1,5 +1,5 @@
 
- <img src="./cliffordlab.svg" width="650" alt="CliffordLab logo" />
+ <img src="./cliffordlab.svg" width="750" alt="CliffordLab logo" />
 
 
 # CliffordLab
