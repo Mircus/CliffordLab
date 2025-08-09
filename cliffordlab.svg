@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6c5ce7"></stop>
+      <stop offset="1" stop-color="#00cec9"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f1221"></rect>
+  <!-- axes -->
+  <line x1="60" y1="180" x2="300" y2="180" stroke="#3a3f6b" stroke-width="2"></line>
+  <line x1="60" y1="180" x2="60" y2="40" stroke="#3a3f6b" stroke-width="2"></line>
+  <!-- ellipse (J^2 = -1) -->
+  <ellipse cx="180" cy="110" rx="90" ry="40" fill="none" stroke="url(#g)" stroke-width="3"></ellipse>
+  <!-- hyperbola (J^2 = +1) -->
+  <path d="M80,110 C110,50 250,50 280,110" fill="none" stroke="#ff7675" stroke-width="3"></path>
+  <!-- J marker -->
+  <circle cx="240" cy="110" r="5" fill="#ff7675"></circle>
+  <text x="250" y="105" fill="#ff7675" font-family="monospace" font-size="14">J</text>
+  <!-- title -->
+  <text x="360" y="120" fill="#eaeaf5" font-family="Arial Black, Arial, sans-serif" font-size="34">CliffordLab</text>
+  <text x="360" y="150" fill="#9aa0d0" font-family="monospace" font-size="16">unified slice regularity • Cl(p,q)</text>
+</svg>
