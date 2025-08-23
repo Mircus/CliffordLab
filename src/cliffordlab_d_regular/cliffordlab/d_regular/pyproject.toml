@@ -1,0 +1,7 @@
+[project]
+name='cliffordlab-d-regular'
+version='0.1.0'
+description='Cl(1,0)=D regularity exploration tools for cliffordlab'
+readme='README.md'
+requires-python='>=3.9'
+dependencies=['numpy','matplotlib']
