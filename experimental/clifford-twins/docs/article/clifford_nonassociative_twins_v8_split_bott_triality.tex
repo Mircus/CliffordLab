@@ -1,0 +1,1635 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+
+\title{Clifford Algebras and Their Nonassociative Twins:\\
+Active Volume, Split Twins, and Folded Triality}
+\author{Mirco A. Mannucci}
+\date{\today}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+
+\newcommand{\Ztwo}{\mathbb Z_2}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Cl}{\mathrm{Cl}}
+\newcommand{\OO}{\mathbb O}
+\newcommand{\assoc}{\Phi}
+\newcommand{\eps}{\varepsilon}
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+Clifford algebras are associative, while the octonions are nonassociative.
+The two structures nevertheless meet on the same eight-dimensional linear
+body in the case of $\Cl(3,0)$. The key observation is not that octonions are
+hidden inside the ordinary Clifford product. Rather, the intrinsic split
+\[
+\Cl(3,0)=\Cl^+(3,0)\oplus \Cl^+(3,0)I,
+\qquad
+\Cl^+(3,0)\cong\mathbb H,
+\]
+is already the Cayley--Dickson doubling space. The standard Clifford product
+uses the pseudoscalar $I$ as a passive central volume imaginary. The octonion
+product is obtained by keeping the quaternionic rotor core and the same
+vector-space split, but replacing the central rule $Ia=aI$ by the conjugating
+rule $\ell a=\widetilde a\ell$. Thus the octonionic twin of $\Cl(3,0)$ is
+read as an activation of the oriented volume line: passive background
+orientation becomes an active chirality-reversing gate.
+
+This note develops that interpretation in four layers. First, it records the
+standard twisted Boolean-cube description, where Clifford algebras and
+nonassociative cousins differ by whether the associator is trivial or curved.
+Second, it replaces the basis-level sign picture by an invariant Clifford-body
+picture: one should not keep only the naked algebra, nor only a presentation
+$\Cl(V,Q)$, but the graded body $(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v)$
+with reversion and central volume line. Third, it works out the companion case
+$\Cl(0,3)$, where the same active-volume step gives the split octonions. This
+provides a second example and clarifies that the construction is controlled by
+the sign of the volume square. Fourth, it connects the construction to
+triality. The usual $\Cl(8,0)$ approach presents triality in unfolded form, as
+three distinct eight-dimensional representations in a large associative
+envelope. The octonionic approach presents triality in folded form, compressing
+the vector and two spinor roles into one nonassociative eight-dimensional body.
+Finally, Bott periodicity suggests a stabilized version: $\Cl(8+8m,0)$ carries
+the same $D_4$ triality cell with matrix coefficients. The contribution claimed
+here is not a new construction of the octonions, but a geometric reframing of
+the Cayley--Dickson step inside $\Cl(3,0)$, its split companion in $\Cl(0,3)$,
+and the relation between folded, unfolded, and Bott-stabilized triality.
+\end{abstract}
+
+
+\section{The guiding intuition}
+
+Noncommutativity says that order matters:
+\[
+xy \neq yx.
+\]
+Nonassociativity says that parenthesization, or history of composition,
+matters:
+\[
+(xy)z \neq x(yz).
+\]
+This distinction is already visible in elementary geometry. If
+\[
+x\star y = \frac{x+y}{2}
+\]
+is the midpoint operation, then
+\[
+(x\star y)\star z = \frac{x+y+2z}{4},
+\qquad
+x\star(y\star z) = \frac{2x+y+z}{4}.
+\]
+Thus staged aggregation remembers its history.
+
+The Clifford--octonion relation considered here gives a sharper and more
+geometric version of the same idea. The octonionic product on the
+$\Cl(3,0)$ vector space is not obtained by merely transporting an arbitrary
+multiplication table. It is obtained by changing the role of the intrinsic
+volume slot. Under the Clifford product, the volume element is passive and
+central. Under the octonionic product, the same slot becomes active and
+conjugating. The resulting nonassociativity records where this active volume
+operation occurs inside a sequence of rotations.
+
+\section{Twisted hypercube algebras}
+
+Let
+\[
+G = (\Ztwo)^n
+\]
+be the Boolean cube, written additively. Let $A_F$ be the real vector space
+with basis
+\[
+\{u_a : a\in G\}.
+\]
+Given a normalized sign twist
+\[
+F:G\times G\to \{\pm 1\},
+\qquad
+F(0,a)=F(a,0)=1,
+\]
+define a product by
+\[
+u_a\cdot_F u_b = F(a,b)u_{a+b}.
+\]
+This is a signed deformation of the group algebra $\R[G]$.
+
+\begin{definition}
+The associator factor of $F$ is the function
+\[
+\assoc_F(a,b,c)
+=
+\frac{F(a,b)F(a+b,c)}
+     {F(b,c)F(a,b+c)}.
+\]
+\end{definition}
+
+A direct computation gives
+\[
+(u_a\cdot_F u_b)\cdot_F u_c
+=
+F(a,b)F(a+b,c)u_{a+b+c},
+\]
+while
+\[
+u_a\cdot_F (u_b\cdot_F u_c)
+=
+F(b,c)F(a,b+c)u_{a+b+c}.
+\]
+Therefore
+\[
+(u_a\cdot_F u_b)\cdot_F u_c
+=
+\assoc_F(a,b,c)\,
+u_a\cdot_F (u_b\cdot_F u_c).
+\]
+
+\begin{proposition}
+The twisted hypercube algebra $A_F$ is associative if and only if
+\[
+\assoc_F(a,b,c)=1
+\]
+for all $a,b,c\in G$.
+Equivalently, $F$ is a $2$-cocycle.
+\end{proposition}
+
+This simple formula is the whole mechanism. Clifford algebras are obtained
+when the twist has trivial associator. Octonionic-type algebras arise when
+the same hypercube skeleton is equipped with a nontrivial but controlled
+associator.
+
+\section{Clifford algebras as associative twisted hypercubes}
+
+The real Clifford algebra $\Cl(p,q)$ is generated by elements
+\[
+e_1,\dots,e_n,\qquad n=p+q,
+\]
+with relations
+\[
+e_i^2 =
+\begin{cases}
++1, & 1\leq i\leq p,\\
+-1, & p<i\leq n,
+\end{cases}
+\qquad
+e_i e_j = - e_j e_i
+\quad (i\neq j).
+\]
+Its standard basis is indexed by subsets of $\{1,\dots,n\}$, equivalently by
+elements of $(\Ztwo)^n$:
+\[
+e_a = e_1^{a_1}\cdots e_n^{a_n},
+\qquad
+a=(a_1,\dots,a_n)\in(\Ztwo)^n.
+\]
+Thus
+\[
+\dim_\R \Cl(p,q)=2^n.
+\]
+
+Multiplication takes the form
+\[
+e_a e_b = F_{\Cl}(a,b)e_{a+b}
+\]
+for a specific sign twist $F_{\Cl}$. The defining fact is:
+\[
+\assoc_{F_{\Cl}}(a,b,c)=1.
+\]
+So Clifford algebras are associative twisted hypercubes.
+
+The commutation signs are still nontrivial. In general,
+\[
+e_a e_b
+=
+\beta(a,b) e_b e_a,
+\]
+where
+\[
+\beta(a,b)
+=
+\frac{F_{\Cl}(a,b)}{F_{\Cl}(b,a)}.
+\]
+Thus Clifford multiplication already contains a controlled sign geometry.
+But the associator remains flat.
+
+\section{The octonions as the first nonassociative twin}
+
+The octonions $\OO$ also have dimension $8=2^3$. Their basis may be written
+\[
+1,u_1,\dots,u_7,
+\]
+or more structurally as
+\[
+\{u_a:a\in(\Ztwo)^3\}.
+\]
+The multiplication again has the form
+\[
+u_a u_b = F_{\OO}(a,b)u_{a+b},
+\]
+but now the associator factor
+\[
+\assoc_{F_{\OO}}(a,b,c)
+\]
+is nontrivial.
+
+Thus the octonions are not merely ``like'' Clifford algebras because they
+have the same dimension as $\Cl(3,0)$. They are like Clifford algebras
+because both live on the same $(\Ztwo)^3$-graded hypercube skeleton:
+\[
+\Cl(3,0): \quad 8\text{-dimensional associative twisted hypercube},
+\]
+\[
+\OO: \quad 8\text{-dimensional nonassociative twisted hypercube}.
+\]
+
+The Fano plane is the visible combinatorial shadow of this multiplication.
+Its oriented lines encode the products among the seven imaginary basis
+elements. The hidden algebraic datum is the nontrivial associator.
+
+
+\section{The invariant $\Cl(3,0)$ construction: passive volume versus conjugating volume}
+
+The sign-table description is useful, but it is not fully satisfying. It
+makes the octonion product look as if it were imposed externally on a chosen
+basis. In the special case of $\Cl(3,0)$ there is a more invariant and more
+geometric construction.
+
+Let
+\[
+\Cl(3,0)=\langle e_1,e_2,e_3\mid e_i^2=1,\ e_i e_j=-e_j e_i\rangle.
+\]
+The even subalgebra is
+\[
+\Cl^+(3,0)=\langle 1,e_{23},e_{31},e_{12}\rangle \cong \mathbb H.
+\]
+Geometrically, this is the algebra of three-dimensional rotors. The bivectors
+$e_{23},e_{31},e_{12}$ are oriented rotation planes, and unit elements of
+$\Cl^+(3,0)$ act as spinors/rotors.
+
+Let
+\[
+I=e_1e_2e_3.
+\]
+Then
+\[
+I^2=-1,
+\]
+and, in $\Cl(3,0)$, the pseudoscalar $I$ is central. Moreover,
+\[
+\Cl(3,0)=\Cl^+(3,0)\oplus \Cl^+(3,0)I.
+\]
+Thus every element can be written uniquely as
+\[
+a+bI,
+\qquad a,b\in \Cl^+(3,0)\cong\mathbb H.
+\]
+Under the ordinary Clifford product, since $I$ is central, one obtains
+\[
+(a+bI)(c+dI)=(ac-bd)+(ad+bc)I.
+\]
+So $\Cl(3,0)$ is a quaternionic rotor algebra doubled by a passive central
+volume imaginary.
+
+Now comes the octonionic move. Keep the same vector-space splitting
+\[
+\Cl^+(3,0)\oplus \Cl^+(3,0)I,
+\]
+but do not let the second copy be controlled by a central pseudoscalar.
+Instead, introduce a new symbol $\ell$ occupying the same second-copy slot and
+impose the crossing rule
+\[
+\ell a=\bar a\,\ell,
+\]
+where $\bar a$ is quaternionic conjugation on $\Cl^+(3,0)$. In Clifford terms,
+this conjugation is simply reversion restricted to the even subalgebra:
+\[
+\overline{a_0+a_1e_{23}+a_2e_{31}+a_3e_{12}}
+=
+ a_0-a_1e_{23}-a_2e_{31}-a_3e_{12}.
+\]
+Then define
+\[
+(a+b\ell)\star(c+d\ell)
+:=
+(ac-\bar d\,b)+(da+b\bar c)\ell.
+\]
+This is the Cayley--Dickson doubling product
+\[
+\mathbb O\cong \mathbb H\oplus \mathbb H\ell.
+\]
+
+Therefore the octonion product is definable from the internal Clifford
+structure of $\Cl(3,0)$ together with one additional algebraic operation:
+reversion/conjugation on the even quaternionic subalgebra. The construction is
+not an arbitrary Fano-plane table placed on the vector space. It is a change in
+the role of the pseudoscalar direction.
+
+In ordinary $\Cl(3,0)$, the volume element is passive:
+\[
+Ia=aI.
+\]
+In the octonionic twin, the volume-like direction is active:
+\[
+\ell a=\bar a\ell.
+\]
+Thus the new direction reverses the orientation of the rotor it crosses. For a
+unit rotor $R\in\Cl^+(3,0)$,
+\[
+\ell R=\bar R\ell=R^{-1}\ell.
+\]
+So the extra direction behaves like a handedness-reversing or mirror-like gate
+for the three-dimensional rotation algebra.
+
+This also explains the nonassociativity. Quaternionic conjugation is an
+anti-automorphism:
+\[
+\overline{ab}=\bar b\bar a.
+\]
+Therefore crossing the gate before or after composing rotations gives different
+answers. Schematically,
+\[
+\ell(ab)=\overline{ab}\,\ell=\bar b\bar a\ell,
+\]
+whereas sequentially crossing $a$ and then $b$ gives the opposite order,
+\[
+(\ell a)b\sim \bar a\bar b\ell.
+\]
+Since quaternions are noncommutative, generally
+\[
+\bar a\bar b\neq \bar b\bar a.
+\]
+Hence parenthesization records where the handedness-reversing gate was inserted into
+a sequence of rotations.
+
+The geometric meaning is therefore:
+\begin{quote}
+$\Cl(3,0)$ is three-dimensional rotor geometry plus a passive volume imaginary.
+The octonions are three-dimensional rotor geometry plus an active
+handedness-reversing gate.
+\end{quote}
+
+Equivalently:
+\begin{quote}
+$\Cl(3,0)$ doubles $\mathbb H$ by a central $I$; the octonions double
+$\mathbb H$ by a conjugating $\ell$.
+\end{quote}
+
+This is the invariant version of the ``nonassociative twin'' idea in dimension
+$8$. The twisted-hypercube/Fano-plane description records the multiplication
+table. The Cayley--Dickson description explains what the operation is doing:
+it turns the central volume direction into an orientation-reversing interface.
+
+
+\section{Is the extra unit determined?}
+
+The preceding construction uses the pseudoscalar direction as the new
+Cayley--Dickson unit. This raises an important question: is that choice forced,
+or did we merely pick a convenient element of the $8$-dimensional space?
+
+The answer depends on the invariance requirement.
+
+Let
+\[
+H:=\Cl^+(3,0)\cong \mathbb H,
+\qquad
+V:=\Cl(3,0)=H\oplus HI.
+\]
+The odd part of $\Cl(3,0)$ decomposes as
+\[
+\Cl^-(3,0)=\mathbb R^3\oplus \mathbb R I.
+\]
+Under the action of $\mathrm{Spin}(3)$, the vector part $\mathbb R^3$ rotates,
+whereas the pseudoscalar line $\mathbb R I$ is invariant. Thus, if we demand
+that the construction introduce no preferred spatial axis, the only possible
+one-dimensional odd direction is
+\[
+\mathbb R I.
+\]
+Consequently the additional Cayley--Dickson unit is forced to be
+\[
+\ell=I
+\]
+up to sign. The ambiguity
+\[
+I\mapsto -I
+\]
+just reverses the chosen orientation and gives an isomorphic octonion algebra.
+
+If we drop rotational invariance, the choice is no longer unique. One can use
+an element of the form
+\[
+qI,
+\qquad q\in H,
+\qquad q\bar q=1,
+\]
+as a second-copy generator. But a non-real unit quaternion $q$ encodes a
+specific rotor direction or frame. Such a choice is not wrong, but it smuggles
+in additional gauge/frame data. It is not the canonical isotropic construction.
+
+So the invariant statement is:
+\[
+\boxed{
+\text{In oriented }\Cl(3,0),\text{ the natural active volume unit is }I=e_1e_2e_3,
+\text{ unique up to sign.}
+}
+\]
+This matters conceptually. The octonionic extension is not adding a fourth
+spatial direction. It is activating the oriented $3$-volume itself. It is a
+chiral extension, not a directional one.
+
+\section{A second worked example: $\Cl(0,3)$ and split octonions}
+
+The construction is clearer if one also looks at the opposite definite
+signature. Let
+\[
+\Cl(0,3)=\langle f_1,f_2,f_3\mid f_i^2=-1,\ f_if_j=-f_jf_i\rangle.
+\]
+The even subalgebra is again quaternionic:
+\[
+\Cl^+(0,3)=\langle 1,f_{23},f_{31},f_{12}\rangle\cong \mathbb H.
+\]
+Let
+\[
+J=f_1f_2f_3.
+\]
+Now the square of the pseudoscalar is different. In general,
+\[
+I^2=(-1)^{q+n(n-1)/2},
+\qquad n=p+q.
+\]
+For $(p,q)=(3,0)$ one has $I^2=-1$, while for $(p,q)=(0,3)$ one has
+\[
+J^2=+1.
+\]
+The same invariant split exists:
+\[
+\Cl(0,3)=\Cl^+(0,3)\oplus \Cl^+(0,3)J
+        \cong \mathbb H\oplus\mathbb HJ.
+\]
+The passive Clifford product treats $J$ as a central volume element with
+positive square:
+\[
+(a+bJ)(c+dJ)=(ac+bd)+(ad+bc)J,
+\qquad a,b,c,d\in\mathbb H.
+\]
+The active-volume twin again replaces the central crossing law by the
+conjugating law
+\[
+\ell a=\bar a\ell,
+\]
+but now the new unit satisfies
+\[
+\ell^2=+1.
+\]
+Thus the corresponding Cayley--Dickson product is
+\[
+(a+b\ell)\star_+(c+d\ell)
+=
+(ac+\bar d\,b)+(da+b\bar c)\ell.
+\]
+This is the split-octonion product. Therefore the same construction gives
+\[
+\Cl(3,0)\quad\leadsto\quad \mathbb O,
+\]
+where the active volume unit has square $-1$, and
+\[
+\Cl(0,3)\quad\leadsto\quad \mathbb O_s,
+\]
+where the active volume unit has square $+1$.
+
+This second example is useful because it shows that the proposal is not merely
+``$\Cl(3,0)$ has the same dimension as $\mathbb O$.'' The mechanism is the
+odd-dimensional volume split
+\[
+\Cl(p,q)=\Cl^+(p,q)\oplus\Cl^+(p,q)I
+\]
+together with the replacement of passive volume by active volume. The sign of
+$I^2$ determines whether the resulting doubling is compact or split.
+
+The low-dimensional cases may be summarized as follows.
+\[
+\begin{array}{c|c|c|c}
+\text{Clifford body} & \text{even core }A=\Cl^+(p,q) & I^2 & \text{active-volume twin}\\
+\hline
+\Cl(3,0) & \mathbb H & -1 & \mathbb O\\
+\Cl(0,3) & \mathbb H & +1 & \mathbb O_s\\
+\Cl(2,1) & \mathbb H_s\cong M_2(\mathbb R) & +1 & \text{split-type }8\text{D twin}\\
+\Cl(1,2) & \mathbb H_s\cong M_2(\mathbb R) & -1 & \text{split-type }8\text{D twin}
+\end{array}
+\]
+Here $\mathbb H_s$ denotes the split quaternions. Only the first line gives the
+classical division octonions. The second gives the split octonions. The mixed
+signatures give analogous split-type active-volume doubles of the split
+quaternionic even core. These examples make the later classification problem
+more concrete: one should ask which signatures yield alternative, flexible, or
+power-associative twins, rather than assume that all higher twins preserve the
+special features of $\mathbb O$.
+
+\section{One vector space, two algebra structures}
+
+It is useful to separate the linear object from the multiplication. The real
+vector space
+\[
+V:=\Cl(3,0)
+\]
+has dimension $8$. But an algebra structure on $V$ is an additional map
+\[
+\mu:V\otimes V\to V.
+\]
+The Clifford algebra and the octonions correspond to two different
+multiplication maps on the same underlying vector space:
+\[
+\mu_{\Cl}
+\qquad\text{and}\qquad
+\mu_{\OO}.
+\]
+They are not two descriptions of one product. They are two different products
+on the same linear body.
+
+The relation is not arbitrary, however. Both products use the same intrinsic
+splitting
+\[
+V=H\oplus HI,
+\qquad
+H=\Cl^+(3,0)\cong\mathbb H.
+\]
+For
+\[
+x=a+bI,
+\qquad
+c+dI\in H\oplus HI,
+\]
+the Clifford product is
+\[
+(a+bI)(c+dI)
+=
+(ac-bd)+(ad+bc)I.
+\]
+This is the product in which $I$ is a passive central volume imaginary:
+\[
+Ia=aI.
+\]
+
+The octonionic product keeps the same linear splitting but changes the crossing
+law:
+\[
+Ia=\bar a I.
+\]
+Equivalently,
+\[
+(a+bI)\star(c+dI)
+=
+(ac-\bar d b)+(da+b\bar c)I.
+\]
+Thus the exact relation between the two structures is:
+\[
+\boxed{
+\text{same quaternionic core, same volume slot, different law for crossing the volume slot.}
+}
+\]
+The Clifford law is central. The octonionic law is conjugating.
+
+This is the clean way to understand how the same $8$-dimensional space can
+carry both structures. The vector space is the stage. The product determines
+what kind of geometry is being performed on that stage.
+
+
+\section{From presented Clifford algebras to intrinsic Clifford bodies}
+
+The previous section suggests a more conceptual formulation. In many contexts
+one writes a Clifford algebra as
+\[
+\Cl(V,Q),
+\]
+where the vector space $V$ and quadratic form $Q$ are treated as primary.
+For the present purpose, however, this presentation is not the whole story.
+The octonionic twin construction becomes cleaner if we separate three levels:
+\[
+\text{presented Clifford algebra } \Cl(V,Q),
+\]
+\[
+\text{intrinsic Clifford body } (\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v),
+\]
+\[
+\text{choice of product law } \mu.
+\]
+Here $\alpha$ denotes the grade involution, $\widetilde{(\cdot)}$ denotes
+reversion, and $\mathfrak v$ denotes the volume line. The point is not to
+forget all structure. The point is to forget the particular generating
+presentation only after keeping the internal data needed to recover the even
+core, the conjugation operation, and the oriented volume slot.
+
+This distinction matters because the raw associative algebra alone is not
+always enough. If we keep only the naked real algebra underlying $\Cl(3,0)$,
+then
+\[
+\Cl(3,0)\cong M_2(\mathbb C)
+\]
+as a real associative algebra. From this algebra one can recover its center,
+\[
+Z(\mathcal C)\cong \mathbb C.
+\]
+The central square roots of $-1$ are precisely the two choices
+\[
+I \quad\text{and}\quad -I,
+\]
+so the central complex or volume line
+\[
+\mathfrak v=\mathbb R I
+\]
+is intrinsic to the algebra. But the sign of $I$ is not intrinsic: choosing
+$I$ rather than $-I$ is exactly the choice of orientation.
+
+Thus the right statement is not that the volume element is absolutely singled
+out from nothing. Rather:
+\[
+\boxed{
+\text{The volume line }\mathbb RI\text{ is intrinsic; the volume element }I
+\text{ requires orientation.}
+}
+\]
+This mirrors ordinary geometry. An unoriented three-dimensional Euclidean
+space has a volume density, but not a signed volume form. An oriented one has
+a chosen volume form, up to the sign convention fixed by orientation.
+
+Moreover, the even subalgebra is not recovered merely from the center. It is
+recovered from the Clifford body structure, namely from the grade involution:
+\[
+\mathcal C^+=\operatorname{Fix}(\alpha).
+\]
+In the case under consideration,
+\[
+\mathcal C^+=\Cl^+(3,0)\cong\mathbb H.
+\]
+The reversion $\widetilde{(\cdot)}$ then restricts to quaternionic conjugation
+on this even core:
+\[
+a\mapsto \widetilde a=\bar a,
+\qquad a\in \mathcal C^+.
+\]
+The oriented volume element is characterized internally, up to sign, by the
+conditions
+\[
+I\in Z(\mathcal C),
+\qquad
+I^2=-1,
+\qquad
+\alpha(I)=-I,
+\qquad
+\widetilde I=-I,
+\]
+and by the decomposition
+\[
+\mathcal C=\mathcal C^+\oplus \mathcal C^+I.
+\]
+For $\Cl(3,0)$ this is exactly the decomposition
+\[
+\mathcal C=H\oplus HI,
+\qquad H=\mathcal C^+\cong\mathbb H.
+\]
+
+The twin construction is therefore intrinsic in the following precise sense.
+Start from an oriented graded Clifford body
+\[
+(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v),
+\]
+choose the oriented element $I\in\mathfrak v$ with $I^2=-1$, set
+\[
+A=\mathcal C^+,
+\]
+and write every element uniquely as
+\[
+x=a+bI,
+\qquad a,b\in A.
+\]
+The standard Clifford product uses the passive central law
+\[
+Ia=aI.
+\]
+The twin product keeps the same body, the same even core, and the same volume
+line, but replaces that passive law by
+\[
+Ia=\widetilde a I.
+\]
+Thus the operation is not a random vector-space transport. It is an internal
+deformation of the role of the volume element:
+\[
+\boxed{
+\text{central volume law } Ia=aI
+\quad\leadsto\quad
+\text{conjugating volume law } Ia=\widetilde a I.
+}
+\]
+
+This also clarifies the relation with generalized Clifford regularity. A
+regularity theory should not depend only on a presented pair $(V,Q)$, nor only
+on a naked algebra $\mathcal C$. It should specify the structured body and the
+product/operations relative to which regularity is being defined. A natural
+package is therefore something like
+\[
+(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v,\mu,D,G),
+\]
+where $\mu$ is the chosen multiplication, $D$ is the corresponding Dirac or
+Cauchy--Riemann-type operator, and $G$ is the symmetry group being preserved.
+The same Clifford body may support
+\[
+\mu_{\Cl}
+\]
+and
+\[
+\mu_{\OO},
+\]
+and these lead to different geometries, different spinor interpretations, and
+potentially different regularity theories.
+
+So the slogan must be corrected as follows. We should not say: ``forget the
+underlying vector space and keep only the algebra.'' That loses too much. We
+should say:
+\begin{quote}
+Forget the particular presentation $\Cl(V,Q)$, but keep the intrinsic graded
+Clifford body: grading, reversion, even core, and oriented volume line.
+\end{quote}
+With that structure retained, the octonionic twin of $\Cl(3,0)$ is not an
+external imposition. It is the result of activating the intrinsic central
+volume line.
+
+\section{Interpretive geometry: switching the role of volume}
+
+The following discussion is an interpretive geometric reading of the associator, not a proposed physical model. It explains what the algebraic operation does to rotor data, and it should be read at that level.
+
+In ordinary $\Cl(3,0)$, the pseudoscalar
+\[
+I=e_1e_2e_3
+\]
+represents oriented volume. It distinguishes right-handed from left-handed
+orientation, but it is passive. For a rotor $R\in H$,
+\[
+IR=RI.
+\]
+The volume element is therefore a background orientation marker, almost like a
+global imaginary phase.
+
+In the octonionic product, the same volume slot becomes active:
+\[
+IR=\bar R I=R^{-1}I
+\]
+for unit rotors $R$. Passing through the volume direction reverses the rotor.
+The volume element is no longer merely the volume of the room; it becomes a
+handedness-changing interface.
+
+Thus the physical switch is:
+\[
+\Cl(3,0):\quad \text{space has an orientation,}
+\]
+whereas
+\[
+\OO:\quad \text{orientation acts on processes.}
+\]
+The nonassociativity records the time or position at which this chirality gate
+is crossed. If $R_1$ and $R_2$ are noncommuting rotors, then
+\[
+I(R_1R_2)=\overline{R_1R_2}I=\bar R_2\bar R_1 I,
+\]
+while crossing the gate after only the first rotor produces the opposite order:
+\[
+(IR_1)R_2\sim \bar R_1\bar R_2 I.
+\]
+Since generally
+\[
+\bar R_1\bar R_2\neq \bar R_2\bar R_1,
+\]
+the two histories differ. Therefore
+\begin{quote}
+Octonionic nonassociativity records where chirality reversal occurred in a
+rotational process.
+\end{quote}
+
+\section{Spinors in the two products}
+
+The spinor interpretation makes the contrast especially transparent.
+
+In ordinary $\Cl(3,0)$, spinors are the unit elements of the even subalgebra
+\[
+H=\Cl^+(3,0)\cong\mathbb H.
+\]
+A unit spinor or rotor $R\in H$ acts on a vector $v\in\mathbb R^3$ by
+\[
+v\mapsto RvR^{-1}.
+\]
+Thus
+\[
+\mathrm{Spin}(3)\cong SU(2)\cong \{R\in H:R\bar R=1\}.
+\]
+A Clifford spinor is therefore a rotational amplitude in a space with passive
+orientation. The pseudoscalar $I$ commutes with it:
+\[
+IR=RI.
+\]
+The spinor and the oriented volume coexist without interfering. Composition is
+ordinary group composition.
+
+In the octonionic product, an element has the same linear form
+\[
+\Psi=a+bI,
+\qquad a,b\in H.
+\]
+But now the second component is not merely another passive quaternionic copy.
+It is the component that has crossed the active volume gate. Since
+\[
+IR=\bar R I=R^{-1}I,
+\]
+the $I$-component carries rotor information in conjugated, or chirality-flipped,
+form.
+
+Thus an octonionic spinor-like element may be read as
+\[
+\Psi=a+bI
+\]
+with
+\[
+a=\text{direct rotor/spinor channel},
+\]
+and
+\[
+bI=\text{chirality-gated rotor/spinor channel}.
+\]
+This is not an ordinary group spinor. Because the product is nonassociative,
+composition depends on where the chirality gate enters the process.
+
+This claim is not merely metaphorical. Let $R_1,R_2\in H$ be unit rotors. In
+the passive Clifford product one has
+\[
+I(R_1R_2)=(R_1R_2)I=(IR_1)R_2,
+\]
+because $I$ is central. In the active product, however,
+\[
+I(R_1R_2)=\overline{R_1R_2}I=\bar R_2\bar R_1 I,
+\]
+while crossing the gate before the second rotor gives
+\[
+(IR_1)R_2=(\bar R_1I)R_2=\bar R_1\bar R_2I.
+\]
+Since quaternionic rotors need not commute,
+\[
+\bar R_1\bar R_2\neq \bar R_2\bar R_1
+\]
+in general. Hence
+\[
+(IR_1)R_2\neq I(R_1R_2).
+\]
+The octonionic spinor-like element therefore remembers whether the frame has
+crossed the handedness gate before or after a given rotation. This is the
+calculation behind the slogan that active-volume spinors carry process memory.
+
+In compressed form:
+\[
+\boxed{
+\Cl(3,0):\quad \text{spinor = rotor in passive oriented 3-space.}
+}
+\]
+\[
+\boxed{
+\OO:\quad \text{spinor-like element = rotor plus chirality-gated rotor.}
+}
+\]
+Or, in compressed form:
+\begin{quote}
+Clifford spinors rotate frames; octonionic spinors remember whether a frame
+crossed the handedness gate.
+\end{quote}
+
+
+
+\section{Folded and unfolded triality}
+
+The discussion above also clarifies the relation with triality. The usual
+route to triality starts from the large associative Clifford envelope
+\[
+\Cl(8,0),
+\]
+inside which
+\[
+\mathrm{Spin}(8)\subset \Cl^+(8,0)
+\]
+acts on three eight-dimensional representations:
+\[
+V,
+\qquad
+S_+,
+\qquad
+S_-.
+\]
+These are the vector representation and the two half-spinor representations.
+In this presentation the three roles occupy different structural rooms. The
+triality symmetry permutes them, but the Clifford architecture itself is large
+and unfolded:
+\[
+\dim \Cl(8,0)=2^8=256.
+\]
+
+The octonionic presentation is different. One identifies
+\[
+V\cong \mathbb O,
+\qquad
+S_+\cong \mathbb O,
+\qquad
+S_-\cong \mathbb O.
+\]
+The three slots remain distinct as roles, but they are all modeled by the same
+kind of eight-dimensional nonassociative body. The triality form may be written
+schematically as
+\[
+t(x,\psi,\phi)=\operatorname{Re}(x(\psi\phi)),
+\qquad
+x,\psi,\phi\in\mathbb O,
+\]
+with the usual care about parenthesization. In this form triality is not spread
+across a $256$-dimensional associative algebra. It is compressed into the
+multiplicative geometry of $\mathbb O$.
+
+This gives a useful distinction:
+\[
+\Cl(8,0)=\text{unfolded triality},
+\]
+while
+\[
+\mathbb O=\text{folded triality}.
+\]
+The word ``folded'' should not be read as a claim that the group
+$\mathrm{Spin}(8)$ literally lives inside the ordinary $\Cl(3,0)$ product. It
+does not. Rather, the active-volume twin of $\Cl(3,0)$ produces the octonionic
+arena in which the three triality roles can be represented compactly.
+
+Thus there are two routes:
+\[
+\Cl(8,0)
+\longrightarrow
+(V,S_+,S_-)
+\longrightarrow
+\text{triality},
+\]
+and
+\[
+\Cl(3,0)
+\xrightarrow{\text{activate volume}}
+\mathbb O
+\longrightarrow
+(\mathbb O_V,\mathbb O_{S_+},\mathbb O_{S_-}).
+\]
+The first route is the large associative envelope. The second route is the
+minimal nonassociative triality cell.
+
+This is the conceptual compression. In the unfolded Clifford picture, the
+bookkeeping of triality is external: vector and spinor spaces are separate
+modules. In the folded octonionic picture, that bookkeeping is internalized in
+the nonassociative product. Parenthesization matters because the multiplication
+must remember which triality face or channel is being used. In this sense:
+\begin{quote}
+Nonassociativity is compressed triality bookkeeping.
+\end{quote}
+
+The $\Cl(3,0)$ twin construction is therefore not merely an octonion trick. It
+is a way of seeing how ordinary three-dimensional rotor geometry, once its
+volume element is made active rather than passive, folds into the octonionic
+cell that can carry vector, left-spinor, and right-spinor faces.
+
+\section{Bott-stabilized triality}
+
+There is a second, more programmatic extension of the folded/unfolded picture.
+It should be stated carefully. The exceptional triality of $\mathrm{Spin}(8)$
+is a $D_4$ phenomenon. It does not repeat as an ordinary triality of
+$\mathrm{Spin}(16)$, $\mathrm{Spin}(24)$, and so on. For example, in dimension
+$16$ the vector representation has dimension $16$, while the half-spinor
+representations have dimension $128$, so there is no democratic permutation of
+three $16$-dimensional representation spaces analogous to $D_4$ triality.
+
+What does repeat is the Clifford envelope. Real Bott periodicity gives
+\[
+\Cl(n+8,0)\cong \Cl(n,0)\otimes M_{16}(\mathbb R),
+\]
+and, in particular,
+\[
+\Cl(16,0)\cong \Cl(8,0)\otimes M_{16}(\mathbb R).
+\]
+Thus higher Clifford algebras do not contain new ordinary $D_4$ trialities;
+they contain matrix-stabilized copies of the original unfolded triality cell.
+In this sense,
+\[
+\Cl(8,0)=\text{unfolded triality over }\mathbb R,
+\]
+whereas
+\[
+\Cl(16,0)=\text{unfolded triality over }M_{16}(\mathbb R),
+\]
+and more generally
+\[
+\Cl(8+8m,0)
+\cong
+\Cl(8,0)\otimes M_{16^m}(\mathbb R).
+\]
+This may be called \emph{Bott-stabilized triality} or \emph{Morita triality}:
+the same $D_4$ triality package is transported through the Bott-periodic matrix
+factor.
+
+The folded analogue is obtained by replacing the unfolded envelope
+$\Cl(8,0)$ by the compact octonionic triality cell $\mathbb O$. Formally one
+is led to matrix-coefficient octonionic spaces
+\[
+\mathbb O\otimes M_{16^m}(\mathbb R),
+\]
+not as new normed division algebras, but as folded triality cells with
+Bott-stabilized coefficients. The original trilinear form
+\[
+t:V\times S_+\times S_-\to\mathbb R
+\]
+may then be replaced schematically by a matrix-coefficient form. For pure
+tensors one expects a trace-paired expression of the type
+\[
+T_A(x\otimes A,\psi\otimes B,\phi\otimes C)
+=
+ t(x,\psi,\phi)\,\operatorname{Tr}(ABC),
+\]
+where
+\[
+A=M_{16^m}(\mathbb R).
+\]
+This formula is meant only as the simplest model of the idea: ordinary
+triality form plus matrix coefficient trace. A fully invariant formulation
+should be phrased in Morita-theoretic language, because the matrix algebra is
+not changing the underlying $D_4$ triality; it is stabilizing its coefficient
+category.
+
+Thus the folded/unfolded diagram extends as follows:
+\[
+\begin{array}{c|c|c}
+\text{level} & \text{unfolded Clifford envelope} & \text{folded octonionic cell}\\
+\hline
+0 & \Cl(8,0) & \mathbb O\\
+1 & \Cl(16,0)\cong \Cl(8,0)\otimes M_{16}(\mathbb R) & \mathbb O\otimes M_{16}(\mathbb R)\\
+2 & \Cl(24,0)\cong \Cl(8,0)\otimes M_{256}(\mathbb R) & \mathbb O\otimes M_{256}(\mathbb R)\\
+\vdots & \vdots & \vdots
+\end{array}
+\]
+The warning is essential: this is not a claim of new $\mathrm{Spin}(16)$ or
+$\mathrm{Spin}(24)$ triality. It is the original $\mathrm{Spin}(8)$ triality
+cell, unfolded or folded, with Bott-periodic matrix coefficients.
+
+\section{The nonassociative twin principle}
+
+We can now state the principle.
+
+\begin{definition}[Clifford twin, informal]
+A nonassociative twin of a Clifford algebra $\Cl(p,q)$ may be understood
+in two compatible senses. In the broad Boolean-cube sense it is a real
+$2^n$-dimensional algebra, $n=p+q$, with basis indexed by $(\Ztwo)^n$,
+multiplication
+\[
+u_a u_b = F(a,b)u_{a+b},
+\]
+and a nontrivial associator
+\[
+\assoc_F(a,b,c)\neq 1
+\]
+for some triples, while preserving as much as possible of the Clifford sign
+geometry, grading, and quadratic signature. In the narrower odd-volume sense,
+when $n$ is odd and
+\[
+\Cl(p,q)=A\oplus AI,
+\qquad A=\Cl^+(p,q),
+\]
+one obtains a canonical active-volume candidate by replacing the passive law
+$Ia=aI$ with the conjugating law $Ia=\widetilde aI$, with the sign of $I^2$
+controlling whether the doubling is compact or split.
+\end{definition}
+
+In this language:
+\[
+\Cl(3,0)
+\quad\text{and}\quad
+\OO
+\]
+are not the same algebra. But they are sibling algebras on the same
+$8$-dimensional hypercube skeleton.
+
+\begin{quote}
+Clifford algebras are associative twisted hypercubes.
+Octonions are nonassociative twisted hypercubes.
+\end{quote}
+
+There are two complementary ways to read this. At the combinatorial level:
+
+\begin{quote}
+The Clifford product twists signs while preserving associativity.
+The octonion product twists signs so that associativity itself becomes curved.
+\end{quote}
+
+At the invariant $\Cl(3,0)$ level:
+
+\begin{quote}
+$\Cl(3,0)$ doubles $\mathbb H$ by a central volume imaginary.
+The octonions double $\mathbb H$ by a conjugating volume-like unit.
+\end{quote}
+
+
+
+\section{Relation to prior work and the intended contribution}
+
+The construction above must be positioned carefully. It should not be presented
+as a new discovery of the octonions, nor as a claim that octonion multiplication
+is simply Clifford multiplication in disguise. The basic ingredients are already
+part of several well-developed literatures.
+
+First, the Cayley--Dickson construction is the classical source of the
+ octonion product. In modern notation,
+\[
+\mathbb O=\mathbb H\oplus \mathbb H\ell,
+\]
+with multiplication controlled by quaternionic conjugation. The formula used in
+this note is exactly this construction, written in the internal language of
+$\Cl(3,0)$ after identifying
+\[
+\Cl^+(3,0)\cong \mathbb H.
+\]
+Thus the present note does not claim to construct $\mathbb O$ for the first
+time. It reinterprets the Cayley--Dickson step using the volume element of
+three-dimensional Clifford geometry.
+
+Second, the relationship between octonions, Clifford algebras, spinors, Bott
+periodicity, triality, and exceptional structures is a classical theme. Baez's
+survey \cite{BaezOctonions} is a standard reference for this landscape, and
+Lounesto \cite{Lounesto} is a standard Clifford-algebra reference for the
+spinorial side. The use of Clifford modules in real $K$-theory and the
+periodicity of real Clifford algebras goes back to Atiyah--Bott--Shapiro
+\cite{AtiyahBottShapiro}; the Bott-stabilized triality discussion here is only
+a repackaging of the standard periodicity
+$\Cl(n+8,0)\cong\Cl(n,0)\otimes M_{16}(\mathbb R)$ around the $D_4$
+triality cell.
+
+The same caution applies to triality. The representation-theoretic fact that
+$\mathrm{Spin}(8)$ has vector and two half-spinor representations of dimension
+$8$, cyclically related by triality, is classical. The octonionic description of
+these representations and their triality form is also classical; it is treated
+in Baez's account of spinors and triality and in the octonionic Clifford
+representations of Manogue and Schray \cite{BaezOctonions,ManogueSchray}. The
+present note uses this material only to articulate a contrast: $\Cl(8,0)$ is a
+large associative envelope for unfolded triality, whereas $\mathbb O$ is the
+compact nonassociative arena of folded triality.
+
+Third, the twisted group algebra viewpoint is already known. Albuquerque and
+Majid showed that the octonions arise as a quasiassociative twisting of the
+group algebra of $(\Ztwo)^3$ \cite{AlbuquerqueMajidOctonions}. They later
+showed that Clifford algebras may be obtained by twisting group algebras of
+$(\Ztwo)^n$ by cocycles \cite{AlbuquerqueMajidClifford}. In that language,
+the sharp algebraic contrast is that the Clifford twist is associative, while
+the octonionic twist has a nontrivial associator. Basak gives another direct
+treatment of the octonions as a twisted group algebra \cite{BasakOctonions}.
+Morier--Genoud and Ovsienko develop related higher octonion-like families and
+higher-dimensional analogues \cite{MorierGenoudOvsienko}. Elduque's discussion
+of Clifford algebras as twisted group algebras and the Arf invariant is also
+relevant to this background \cite{ElduqueArf}.
+
+Fourth, there is recent work explicitly describing octonions as Clifford-like
+nonassociative algebras. Depies, Smith, and Ashburn introduce Kingdon algebras:
+alternative Clifford-like algebras equipped with an involutory anti-automorphism
+and anticommuting generators, in which the octonions and split octonions arise
+naturally \cite{DepiesSmithAshburn}. This is especially close in spirit to the
+present note and must be treated as a central comparator in any future expanded
+version.
+
+The following table states the relation between the present proposal and these
+nearby frameworks.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\textwidth}
+                >{\raggedright\arraybackslash}p{0.19\textwidth}
+                >{\raggedright\arraybackslash}p{0.22\textwidth}
+                >{\raggedright\arraybackslash}p{0.16\textwidth}
+                >{\raggedright\arraybackslash}p{0.17\textwidth}}
+\toprule
+\textbf{Framework} & \textbf{Basic space} & \textbf{Control datum} & \textbf{Main identity / defect} & \textbf{Status here} \\
+\midrule
+Clifford algebra $\Cl(p,q)$ & Blade basis indexed by $(\Ztwo)^n$ & Quadratic form plus associative Clifford sign cocycle & Associativity; anticommutation of generators & Prior work / starting point \\
+\addlinespace
+Cayley--Dickson double & $A\oplus A\ell$ & Involution on $A$ and scalar $\ell^2$ & Associativity fails after the quaternion stage; alternativity survives for octonions & Prior work; formula reused \\
+\addlinespace
+Octonions $\mathbb O$ & $\mathbb H\oplus\mathbb H\ell$ or $(\Ztwo)^3$ basis & Quaternionic conjugation / Fano-plane sign rule & Nonassociative but alternative & Prior work; dimension-$8$ target \\
+\addlinespace
+Albuquerque--Majid twisted/quasi group algebras & Group algebra of $(\Ztwo)^n$ & Cocycle or quasi-cocycle / associator & Clifford: trivial associator; octonions: nontrivial associator & Prior work; algebraic comparator \\
+\addlinespace
+Morier--Genoud--Ovsienko higher octonions & Twisted group algebras over $(\Ztwo)^n$ & Cubic twisting functions & Higher octonion-like nonassociative laws & Prior work; higher-dimensional comparator \\
+\addlinespace
+Kingdon algebras & Clifford-like generators over formed spaces & Involutory anti-automorphism and alternative universal law & Alternative Clifford-like nonassociative structure & Prior work; closest conceptual comparator \\
+\addlinespace
+$\Cl(8,0)$ triality & $V,S_+,S_-$ inside a large associative envelope & $\mathrm{Spin}(8)$ action and outer triality symmetry & Three distinct $8$D representation roles & Prior work; unfolded triality comparator \\
+\addlinespace
+Octonionic triality & Three copies of $\mathbb O$ & Octonionic product and real trilinear form & One $8$D body occupies three triality roles & Prior work; folded triality comparator \\
+\addlinespace
+Bott-stabilized triality & $\Cl(8,0)\otimes M_{16^m}(\mathbb R)$ or $\mathbb O\otimes M_{16^m}(\mathbb R)$ & Matrix/Morita coefficient stabilization & Same $D_4$ triality cell with matrix coefficients, not new $\mathrm{Spin}(16)$ triality & Programmatic extension proposed here \\
+\addlinespace
+Intrinsic Clifford body viewpoint & $(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v)$ & Grading, reversion, and central volume line retained after forgetting a specific presentation & Product law becomes a variable part of the structure & Proposed contribution: invariant formulation \\
+\addlinespace
+Volume-twin interpretation in this note & $\Cl^+(3,0)\oplus\Cl^+(3,0)I$ & Reversion on $\Cl^+(3,0)$ plus active pseudoscalar $I$ & Associator records where chirality reversal occurs & Proposed contribution: geometric reframing \\
+\bottomrule
+\end{tabular}%
+}
+\end{center}
+
+The invariant-body viewpoint adds one further clarification. The present note
+is not merely changing a multiplication table on an anonymous $8$-dimensional
+space. It keeps the graded Clifford body
+\[
+(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v)
+\]
+and changes the role of the central volume line inside that body. This is the
+specific conceptual contribution: the Cayley--Dickson step is read as a
+transition from passive central volume to active conjugating volume.
+
+Thus the honest novelty claim is modest. We do not claim:
+\begin{itemize}
+    \item that the octonions are new;
+    \item that the Cayley--Dickson construction is new;
+    \item that octonions as twisted group algebras are new;
+    \item that octonions as Clifford-like algebras are new;
+    \item or that $\mathbb O$ is isomorphic to $\Cl(3,0)$ as an algebra.
+\end{itemize}
+
+The intended contribution is instead the following geometric reframing, together with the folded/unfolded triality interpretation:
+\begin{quote}
+Inside $\Cl(3,0)$, the vector-space decomposition
+\[
+\Cl(3,0)=\Cl^+(3,0)\oplus \Cl^+(3,0)I
+\]
+is already the Cayley--Dickson doubling space
+\[
+\mathbb H\oplus \mathbb H I.
+\]
+The Clifford product treats $I$ as a passive central volume imaginary. The
+octonion product is obtained by making the same volume slot act as a
+conjugating unit.
+\end{quote}
+
+In one line:
+\[
+\text{Clifford: } Ia=aI,
+\qquad
+\text{octonionic twin: } Ia=\bar a I.
+\]
+
+This is not intended as a replacement for the Cayley--Dickson construction. It
+is an interpretation of the Cayley--Dickson construction from within the
+geometry of $\Cl(3,0)$. The focus is on the change in the role of the oriented
+volume element:
+\[
+\text{passive volume marker}
+\quad\longrightarrow\quad
+\text{active chirality gate}.
+\]
+
+This interpretation also gives a compact interpretive reading of the associator.
+In the Clifford product, oriented volume is background structure. In the
+octonionic product, crossing the volume direction conjugates a rotor, and hence
+reverses the order of a composite rotation. Nonassociativity then records where
+this chirality reversal occurs in a rotational process.
+
+The possible research value is therefore not in rediscovering $\mathbb O$, but
+in using this formulation as a template for a controlled comparison between:
+\begin{enumerate}
+    \item associative Clifford products;
+    \item quasiassociative/twisted Boolean-cube products;
+    \item Cayley--Dickson doubles of even Clifford cores;
+    \item Kingdon-style alternative Clifford-like algebras;
+    \item and computational searches for odd-dimensional volume twins.
+\end{enumerate}
+
+This is the exact level at which the present proposal should be defended: not
+as a new algebraic object in dimension $8$, but as a useful invariant and
+geometric explanation of how the octonionic product can be placed on the same
+underlying linear space as $\Cl(3,0)$ while changing the role of the oriented
+volume element.
+
+\section{A small research program}
+
+The preceding discussion suggests a concrete program.
+
+\begin{problem}[Classification of Clifford twins]
+For each signature $(p,q)$, classify twists
+\[
+F:(\Ztwo)^n\times(\Ztwo)^n\to \{\pm 1\}
+\]
+such that:
+\begin{enumerate}
+    \item $A_F$ has dimension $2^n$;
+    \item $A_F$ has the same grading skeleton as $\Cl(p,q)$;
+    \item the square signs $u_a^2$ encode a prescribed quadratic signature;
+    \item the associator $\assoc_F$ is nontrivial but controlled;
+    \item optional identities hold: alternativity, flexibility, or power-associativity.
+\end{enumerate}
+\end{problem}
+
+The dimension-$8$ cases $\Cl(3,0)\leadsto\mathbb O$ and
+$\Cl(0,3)\leadsto\mathbb O_s$ are the prototypes. Higher dimensions should
+not be expected to preserve all octonionic miracles. In particular, normed
+division algebra behavior is exceptional. But the active-volume and
+twisted-hypercube viewpoints give a uniform search space for Clifford-like
+nonassociative cousins.
+
+A more concrete computational program is:
+\begin{enumerate}
+    \item For odd $n=p+q$, implement the volume split
+    \[
+    \Cl(p,q)=\Cl^+(p,q)\oplus\Cl^+(p,q)I
+    \]
+    and the active-volume product
+    \[
+    \begin{aligned}
+    (a+bI)\star(c+dI)
+    &=(ac+I^2\,\widetilde d\,b)\\
+    &\quad +(da+b\widetilde c)I.
+    \end{aligned}
+    \]
+    \item Determine when the resulting twin is alternative, flexible, or
+    power-associative.
+    \item Compare the active-volume associator with the associator obtained
+    from the $(\Ztwo)^n$ twisted-cube formulation.
+    \item Identify which twins are merely matrix-coefficient/split variants
+    and which, if any beyond dimension $8$, have genuinely new structure.
+\end{enumerate}
+
+\section{Computational viewpoint}
+
+The computational representation is direct.
+
+Represent elements of $(\Ztwo)^n$ as bit vectors or integers
+\[
+0,\dots,2^n-1.
+\]
+A twist is a table
+\[
+F[a,b]\in\{\pm 1\}.
+\]
+Multiplication is
+\[
+(a,b)\mapsto (F[a,b],a\oplus b),
+\]
+where $\oplus$ denotes bitwise XOR.
+
+The associator table is
+\[
+\assoc[a,b,c]
+=
+\frac{F[a,b]F[a\oplus b,c]}
+     {F[b,c]F[a,b\oplus c]}.
+\]
+This makes the theory ideal for a small Python package. Such a package
+accompanies this article.
+
+\subsection{Companion repository: \texttt{clifford-twins}}
+
+A companion Python repository implements the constructions of this article
+and provides a computational verification layer. The package is organized as
+follows.
+
+\medskip
+
+\noindent\textbf{Core modules.}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lp{0.6\textwidth}}
+\toprule
+\textbf{Module} & \textbf{Contents} \\
+\midrule
+\texttt{quaternion.py} & Frozen-dataclass quaternion arithmetic: Hamilton
+  product, conjugation, norm, inverse. \\
+\texttt{cl3.py} & The shared 8D carrier $\mathcal C = H \oplus HI$, represented
+  as a pair of quaternions. This class is product-agnostic: it implements only
+  vector-space operations (addition, subtraction, scalar multiplication,
+  Cayley--Dickson conjugation, norm). \\
+\texttt{products.py} & The two multiplications on the same carrier:
+  \texttt{clifford\_product} (passive volume, $Ia = aI$) and
+  \texttt{octonion\_twin\_product} (active volume, $\ell a = \bar{a}\ell$).
+  Also: \texttt{associator} and \texttt{commutator} as higher-order functions
+  parameterized by product choice. \\
+\texttt{basis.py} & The standard 8-element basis
+  $\{1, i, j, k, \ell, i\ell, j\ell, k\ell\}$, corresponding to the
+  $(\mathbb Z_2)^3$ grading. \\
+\texttt{identities.py} & Checks for associativity and alternativity on the
+  full basis: \texttt{is\_associative\_on\_basis},
+  \texttt{is\_alternative\_on\_basis}, and \texttt{associator\_table}
+  (enumerates all nonzero basis associators). \\
+\texttt{triality.py} & The octonionic triality form
+  $t(x,\psi,\phi) = \operatorname{Re}(x \cdot (\psi \cdot \phi))$, inner
+  product, and real-part extraction. \\
+\texttt{twisted\_cube.py} & The $(\mathbb Z_2)^n$ twisted-hypercube framework
+  from Section~2: a \texttt{Twist} dataclass parameterized by a sign rule
+  $F: G \times G \to \{\pm 1\}$, with methods for basis multiplication,
+  associator factor $\Phi_F(a,b,c)$, and full associativity check. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+
+\noindent\textbf{Design principle.}
+The central design decision is that the carrier
+\texttt{Cl3Element} does \emph{not} carry a product. It is a pure
+vector-space element. Multiplications are external functions that take two
+elements and return a third. This mirrors the article's key point: one
+vector space, two algebra structures (Section~8). The same Python object
+\texttt{x} can be multiplied under either product:
+\begin{verbatim}
+    from clifford_twins.products import clifford_product, octonion_twin_product
+
+    z_cl  = clifford_product(x, y)       # passive volume: Ia = aI
+    z_oct = octonion_twin_product(x, y)   # active volume:  la = conj(a) l
+\end{verbatim}
+
+\noindent\textbf{What the tests verify.}
+The test suite (23 tests at time of writing) verifies:
+\begin{itemize}
+    \item Clifford product is associative on all basis triples ($8^3 = 512$
+    triples).
+    \item Octonion twin product is \emph{not} associative but \emph{is}
+    alternative on all basis pairs.
+    \item The associator table has exactly the expected nonzero entries.
+    \item The triality form satisfies the expected cyclic symmetry.
+    \item The twisted-cube \texttt{Twist} class correctly distinguishes
+    associative (Clifford) and nonassociative (octonionic) sign rules.
+    \item Quaternion arithmetic: Hamilton product, conjugation, norm, inverse.
+\end{itemize}
+
+\noindent\textbf{Relation to article sections.}
+Sections~2--4 (twisted hypercubes and associator factor) correspond to
+\texttt{twisted\_cube.py}.
+Sections~5--6 (invariant $\Cl(3,0)$ construction) correspond to
+\texttt{cl3.py} and \texttt{products.py}.
+Section~7 ($\Cl(0,3)$ and split octonions) is not yet implemented in the
+repository; this is a natural next step.
+Section~12 (triality) corresponds to \texttt{triality.py}.
+The research program in Section~15 outlines the computational search that
+\texttt{twisted\_cube.py} is designed to support.
+
+
+\section{Conclusion}
+
+The slogan ``Clifford algebras have nonassociative twins'' is mathematically
+reasonable only when stated carefully. In the Boolean-cube language, Clifford
+algebras and octonionic-type algebras share a graded hypercube skeleton, but
+differ in whether the associator is trivial or nontrivial. This is the broad
+combinatorial view.
+
+In dimension $8$ there is a stronger geometric view. The Clifford algebra
+$\Cl(3,0)$ contains an intrinsic quaternionic even subalgebra
+\[
+\Cl^+(3,0)\cong\mathbb H,
+\]
+and an intrinsic split
+\[
+\Cl(3,0)=\Cl^+(3,0)\oplus\Cl^+(3,0)I.
+\]
+The Clifford product treats $I$ as a passive central volume imaginary. The
+octonion product is obtained by keeping the same rotor core and the same
+doubled vector space, but replacing the central rule
+\[
+Ia=aI
+\]
+by the conjugating rule
+\[
+\ell a=\bar a\ell.
+\]
+Thus the octonionic twin of $\Cl(3,0)$ is not merely a basis-level sign trick.
+It is the result of turning the passive volume direction into an active
+handedness-reversing gate for the rotor algebra.
+
+The Cayley--Dickson unit is also not arbitrary if rotational invariance is
+required. The odd part of $\Cl(3,0)$ contains vectors, which select directions,
+and the pseudoscalar line $\mathbb RI$, which selects only orientation. Hence
+$I$ is the unique isotropic candidate, up to sign. In this sense the
+octonionic extension is chiral rather than directional.
+
+The companion example $\Cl(0,3)$ shows that the same active-volume mechanism
+is not confined to the compact octonions. Since its pseudoscalar has square
+$+1$, the same construction produces the split octonions. Thus the sign of the
+volume square controls the compact/split character of the twin.
+
+The corresponding spinor picture is equally sharp once expressed as a
+calculation: Clifford spinors are rotors in passively oriented three-space,
+while octonionic spinor-like elements are rotors together with chirality-gated
+rotors. Their nonassociativity records where the handedness gate occurs in a
+rotational process.
+
+The construction should therefore be formulated not from the naked algebra
+alone, and not merely from the presentation $\Cl(V,Q)$, but from an oriented
+graded Clifford body
+\[
+(\mathcal C,\alpha,\widetilde{(\cdot)},\mathfrak v).
+\]
+For $\Cl(3,0)$ the center recovers the volume line $\mathbb RI$, while the
+orientation chooses $I$ or $-I$. The grade involution recovers the even core,
+and reversion gives the conjugation needed for the Cayley--Dickson step. In
+this precise sense, the octonionic twin is an intrinsic volume activation of
+$\Cl(3,0)$, not an arbitrary remultiplication of $\mathbb R^8$.
+
+Finally, the same construction gives a compact way to think about triality.
+The usual $\Cl(8,0)$ route unfolds triality across the vector and two half-spinor
+representations inside a large associative envelope. The octonionic route folds
+those three roles into one nonassociative eight-dimensional body. The
+$\Cl(3,0)$ twin construction does not replace $\mathrm{Spin}(8)$ and does not
+place full triality inside the ordinary Clifford product. What it does is
+produce, from three-dimensional rotor geometry by active volume, the octonionic
+cell in which folded triality naturally lives. Bott periodicity then stabilizes
+this picture: $\Cl(8+8m,0)$ should be read not as a source of new ordinary
+trialities, but as the original $D_4$ triality cell with matrix coefficients.
+
+This suggests a focused research direction: use the invariant Clifford-body
+viewpoint to compare associative Clifford products, volume-activated twins,
+twisted Boolean-cube models, and octonionic triality cells, while remaining
+explicit about what is prior work and what is only a new geometric synthesis.
+
+\begin{thebibliography}{99}
+
+\bibitem{CayleyDicksonBackground}
+R. D. Schafer,
+\emph{An Introduction to Nonassociative Algebras},
+Academic Press, 1966.
+
+\bibitem{SpringerVeldkamp}
+T. A. Springer and F. D. Veldkamp,
+\emph{Octonions, Jordan Algebras and Exceptional Groups},
+Springer Monographs in Mathematics, Springer, 2000.
+
+\bibitem{BaezOctonions}
+J. C. Baez,
+\emph{The Octonions},
+Bulletin of the American Mathematical Society 39, no. 2 (2002), 145--205.
+DOI: \url{https://doi.org/10.1090/S0273-0979-01-00934-X}.
+
+\bibitem{Lounesto}
+P. Lounesto,
+\emph{Clifford Algebras and Spinors},
+2nd edition, London Mathematical Society Lecture Note Series 286,
+Cambridge University Press, 2001.
+
+\bibitem{AtiyahBottShapiro}
+M. F. Atiyah, R. Bott, and A. Shapiro,
+\emph{Clifford modules},
+Topology 3, Supplement 1 (1964), 3--38.
+DOI: \url{https://doi.org/10.1016/0040-9383(64)90003-5}.
+
+\bibitem{ManogueSchray}
+C. A. Manogue and J. Schray,
+\emph{Octonionic representations of Clifford algebras and triality},
+Foundations of Physics 26 (1996), 17--70.
+Available as arXiv:hep-th/9407179.
+
+
+\bibitem{AlbuquerqueMajidOctonions}
+H. Albuquerque and S. Majid,
+\emph{Quasialgebra structure of the octonions},
+Journal of Algebra 220, no. 1 (1999), 188--224.
+Available as arXiv:math/9802116.
+
+\bibitem{AlbuquerqueMajidClifford}
+H. Albuquerque and S. Majid,
+\emph{Clifford algebras obtained by twisting of group algebras},
+Journal of Pure and Applied Algebra 171, no. 2--3 (2002), 133--148.
+Available as arXiv:math/0011040.
+
+\bibitem{BasakOctonions}
+T. Basak,
+\emph{The octonions as a twisted group algebra},
+arXiv:1702.05705, 2017.
+
+\bibitem{MorierGenoudOvsienko}
+S. Morier-Genoud and V. Ovsienko,
+\emph{A series of algebras generalizing the octonions and Hurwitz--Radon identity},
+Communications in Mathematical Physics 306, no. 1 (2011), 83--118.
+Available as arXiv:1003.0429.
+
+\bibitem{ElduqueArf}
+A. Elduque,
+\emph{Clifford algebras as twisted group algebras and the Arf invariant},
+Advances in Applied Clifford Algebras 28 (2018), article 42.
+
+\bibitem{DepiesSmithAshburn}
+C. M. Depies, J. D. H. Smith, and M. D. Ashburn,
+\emph{Octonions as Clifford-like algebras},
+arXiv:2310.09972, 2023.
+
+\end{thebibliography}
+
+\end{document}

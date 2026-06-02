@@ -42,6 +42,13 @@ CliffordLab/
 │   └── CliffordLab_Tutorial.ipynb  # Jupyter tutorial
 ├── tests/
 │   └── test_cr_conditions.py  # Unit tests for CR conditions
+├── experimental/
+│   └── clifford-twins/        # Nonassociative twins of Cl(3,0)
+│       ├── src/clifford_twins/ # Active-volume octonion construction
+│       ├── tests/              # 23 tests: associativity, alternativity, triality
+│       ├── examples/           # Demo scripts
+│       ├── docs/article/       # Companion paper (v8)
+│       └── README.md
 └── .github/
     └── workflows/
         └── ci.yml            # GitHub Actions CI pipeline
@@ -110,6 +117,25 @@ Run lint:
 ```bash
 ruff check src
 ```
+
+---
+
+## Experimental: Clifford Twins
+
+The `experimental/clifford-twins/` directory contains a companion package for the article:
+
+**Clifford Algebras and Their Nonassociative Twins: Active Volume, Split Twins, and Folded Triality**
+by Mirco A. Mannucci
+
+It implements the active-volume construction: the Clifford algebra Cl(3,0) and the octonions share the same 8D carrier H + HI, but differ in the role of the volume element (passive central vs. conjugating gate). The package provides both products on the same vector space, associator/alternativity checks, triality form, and a (Z_2)^n twisted-hypercube framework for the general classification problem.
+
+```bash
+cd experimental/clifford-twins
+pip install -e ".[dev]"
+pytest
+```
+
+See [`experimental/clifford-twins/README.md`](experimental/clifford-twins/README.md) for details.
 
 ---
 
